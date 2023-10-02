@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthPayload {
+  accessToken: String!
+  success: Boolean!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  acceptRideRequest(id: ID!): Ride!
+  deleteUser(id: ID!): User!
+  driverLogin(input: LoginInput!): AuthPayload!
+  registerDriver(input: RegisterUserInput!): User!
+  registerRider(input: RegisterUserInput!): User!
+  rideRequest(input: RideRequestInput!): Ride!
+  riderLogin(input: LoginInput!): AuthPayload!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+}
+
+type Query {
+  getRideById(id: ID!): Ride!
+  getRides: [Ride!]!
+  getUserById(id: ID!): User!
+  getUsers: [User!]!
+  sayHello: String!
+}
+
+input RegisterUserInput {
+  address: String!
+  email: String!
+  name: String!
+  password: String!
+}
+
+type Ride {
+  driver: User!
+  droppingLocation: String!
+  pickupLocation: String!
+  rider: User!
+  status: String!
+}
+
+input RideRequestInput {
+  droppingLocation: String!
+  pickupLocation: String!
+}
+
+input UpdateUserInput {
+  address: String
+  email: String
+  name: String
+  password: String
+}
+
+type User {
+  address: String!
+  email: String!
+  name: String!
+  password: String!
+  role: String!
+}
