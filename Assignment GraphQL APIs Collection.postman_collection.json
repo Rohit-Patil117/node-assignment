@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "25e7e70a-3249-49a8-a345-442b520153d3",
+		"name": "Assignment GraphQL APIs Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15341768",
+		"_collection_link": "https://speeding-sunset-760276.postman.co/workspace/New-Team-Workspace~6397ef27-e53b-4153-af64-aa093a21eb8b/collection/15341768-25e7e70a-3249-49a8-a345-442b520153d3?action=share&source=collection_link&creator=15341768"
+	},
+	"item": [
+		{
+			"name": "Driver Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation RegisterDriver($input: RegisterUserInput!) {\r\n    registerDriver(input: $input) {\r\n        role\r\n        name\r\n        email\r\n        address\r\n    }\r\n}",
+						"variables": "{\r\n    \"input\": {\r\n        \"name\": \"Hammad Khan\",\r\n        \"email\": \"hkhan@logiquad.com\",\r\n        \"address\": \"Delhi\",\r\n        \"password\": \"hammad@123\"\r\n    }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rider Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation RegisterRider($input: RegisterUserInput!) {\r\n    registerRider(input: $input) {\r\n        role\r\n        name\r\n        email\r\n        address\r\n    }\r\n}",
+						"variables": "{\r\n    \"input\": {\r\n        \"password\": \"rohit@123\",\r\n        \"name\": \"Rohit Patil\",\r\n        \"email\": \"rpatil@logiquad.com\",\r\n        \"address\": \"Pune\"\r\n    }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rider Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation RiderLogin($input: LoginInput!) {\r\n    riderLogin(input: $input) {\r\n        success\r\n        accessToken\r\n    }\r\n}",
+						"variables": "{\r\n    \"input\": {\r\n        \"password\": \"rohit@123\",\r\n        \"email\": \"rpatil@logiquad.com\"\r\n    }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Driver Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation DriverLogin($input: LoginInput!) {\r\n    driverLogin(input: $input) {\r\n        success\r\n        accessToken\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"input\": {\r\n        \"password\": \"hammad@123\",\r\n        \"email\": \"hkhan@logiquad.com\"\r\n    }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ride Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFiOTA2NGQ1MmM5MzhkMmViNDQ5N2YiLCJuYW1lIjoiUm9oaXQgUGF0aWwiLCJlbWFpbCI6InJwYXRpbEBsb2dpcXVhZC5jb20iLCJpYXQiOjE2OTYzMDUzMDYsImV4cCI6MTY5NjM5MTcwNn0.FMp3oxxzAzF-5mKdB0VIRpPGkN6FyVtXpcMcTxk496Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation RideRequest($input: RideRequestInput!) {\r\n    rideRequest(input: $input) {\r\n        pickupLocation\r\n        droppingLocation\r\n        status \r\n    }\r\n}",
+						"variables": "{\r\n    \"input\": {\r\n        \"pickupLocation\": \"Swarget, Pune\",\r\n        \"droppingLocation\": \"Baner, Pune\"\r\n    }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Ride Request by Driver",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFiOTA4YWQ1MmM5MzhkMmViNDQ5ODEiLCJuYW1lIjoiSGFtbWFkIEtoYW4iLCJlbWFpbCI6ImhraGFuQGxvZ2lxdWFkLmNvbSIsImlhdCI6MTY5NjMwNTQwNiwiZXhwIjoxNjk2MzkxODA2fQ.QuFChSDloBYJ7Lp5DD42o8XhicwkKEAPJMWm0mWxe4s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation AcceptRideRequest($acceptRideRequestId: ID!) {\r\n    acceptRideRequest(id: $acceptRideRequestId) {\r\n        status\r\n        rider {\r\n            name\r\n            email\r\n            address\r\n            role\r\n        }\r\n        driver {\r\n            name\r\n            email\r\n            address\r\n            role\r\n        }\r\n        pickupLocation\r\n        droppingLocation\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"acceptRideRequestId\": \"651b90c4d52c938d2eb44985\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ride by Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFiOTA4YWQ1MmM5MzhkMmViNDQ5ODEiLCJuYW1lIjoiSGFtbWFkIEtoYW4iLCJlbWFpbCI6ImhraGFuQGxvZ2lxdWFkLmNvbSIsImlhdCI6MTY5NjMwNTQwNiwiZXhwIjoxNjk2MzkxODA2fQ.QuFChSDloBYJ7Lp5DD42o8XhicwkKEAPJMWm0mWxe4s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetRideById($getRideByIdId: ID!) {\r\n  getRideById(id: $getRideByIdId) {\r\n    status\r\n    rider {\r\n      name\r\n      email\r\n      address\r\n      role\r\n    }\r\n    pickupLocation\r\n    droppingLocation\r\n  }\r\n}",
+						"variables": "{\r\n  \"getRideByIdId\": \"651b90c4d52c938d2eb44985\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rides",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFiOTA4YWQ1MmM5MzhkMmViNDQ5ODEiLCJuYW1lIjoiSGFtbWFkIEtoYW4iLCJlbWFpbCI6ImhraGFuQGxvZ2lxdWFkLmNvbSIsImlhdCI6MTY5NjMwNTQwNiwiZXhwIjoxNjk2MzkxODA2fQ.QuFChSDloBYJ7Lp5DD42o8XhicwkKEAPJMWm0mWxe4s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetRides {\r\n  getRides {\r\n    status\r\n    rider {\r\n      name\r\n      email\r\n      address\r\n      role\r\n    }\r\n    droppingLocation\r\n    pickupLocation\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
